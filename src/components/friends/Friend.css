@@ -1,0 +1,10 @@
+.friend{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 0.2vw 3vw;
+    border: 1px solid black;
+}
+.friend > button{
+    margin-left: 1vw;
+}

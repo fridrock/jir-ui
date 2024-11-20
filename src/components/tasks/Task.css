@@ -1,0 +1,10 @@
+.taskContainer{
+    padding:0.1vw 3vw;
+    border: 1px solid black;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.taskContainer > p{
+    margin-left: 1vw;
+}
