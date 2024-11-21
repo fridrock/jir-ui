@@ -12,11 +12,11 @@ export default function AuthForm({changePage}){
     const [error, setError] = useState('')
     async function sendRequest(){
         const response = await fetch(defaultEndpoint+"/users/auth", {
-            method: 'POST', // Метод запроса
+            method: 'POST', 
             headers: {
-                'Content-Type': 'application/json' // Заголовок, указывающий, что отправляем JSON
+                'Content-Type': 'application/json' 
             },
-            body: JSON.stringify(form) // Преобразование данных в строку JSON
+            body: JSON.stringify(form) 
         })
         let responseBody = await response.json()
         if(response.status != 200){

@@ -14,9 +14,11 @@ export default function CreateProject({addProject}){
             },
             body: JSON.stringify({name})
         })
-        let body = await response.json()
-        addProject(body)
-        setName('')
+        if(response.status == 200){
+            let body = await response.json()
+            addProject(body)
+            setName('')
+        }
     }
     return(
         <>
