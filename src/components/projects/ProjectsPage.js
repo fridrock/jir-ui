@@ -7,7 +7,6 @@ import { projectsEndpoint } from "../../utils/callEndpont"
 
 export default function ProjectsPage(){
     const [projects, setProjects] = useState([])
-    console.log(projects)
     const [choosen, setChoosen] = useState(null)
     const fetchWithToken = useFetchWithToken()
     const addProject = project => {

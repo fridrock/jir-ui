@@ -3,7 +3,10 @@ import { useFetchWithToken } from "../../utils/callWithAuth"
 import { projectsEndpoint } from "../../utils/callEndpont"
 
 export default function CreateTask({project, addTask}){
-    const [description, setDescription] = useState('')
+    const [form, setForm] = useState({
+        name:'',
+        description:''
+    })
     const fetchWithToken = useFetchWithToken()
     async function createTask(e){
         e.preventDefault()
@@ -12,18 +15,22 @@ export default function CreateTask({project, addTask}){
             headers: {
                 'Content-Type': 'application/json' // Заголовок, указывающий, что отправляем JSON
             },
-            body: JSON.stringify({description, "projectId": project.id})
+            body: JSON.stringify({...form, "projectId": project.id})
         })
-        let body = await response.json()
-        addTask(body)
-        setDescription('')
+        if (response.status == 200){
+            let body = await response.json()
+            addTask(body)
+        setForm({name:'', description:''})
+        }
     }
     return(
         <>
         <h1>Create task</h1>
         <form>
+            <label>Name</label>
+            <input type="text" onChange={(e)=>setForm({...form, name: e.target.value})} value={form.name}></input>
             <label>Description</label>
-            <input type="text" onChange={(e)=>setDescription(e.target.value)} value={description}></input>
+            <input type="text" onChange={(e)=>setForm({...form, description:e.target.value})} value={form.description}></input>
             <button onClick={createTask}>Create</button>
         </form>
         </>

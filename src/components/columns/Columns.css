@@ -1,0 +1,15 @@
+.columnsContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+.columnsList{
+    min-width: 100vw;
+    padding: 1vw;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-wrap: nowrap;
+    overflow-wrap:break-word;
+}

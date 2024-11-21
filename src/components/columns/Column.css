@@ -1,0 +1,21 @@
+.column{
+    display: flex;flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 30vw !important;
+    margin-right: 2vw;
+    min-height: 60vh;
+    border: 1px solid black;
+}
+
+.columnHeader{
+    width: 100%;
+    padding: 0.5vw;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+.columnList{
+    padding: 0.5vw;
+}

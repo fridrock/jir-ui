@@ -6,6 +6,9 @@ import CreateTask from "../tasks/CreateTask"
 export default function Backlog({project}){
     const [tasks, setTasks] = useState([])
     const fetchWithToken = useFetchWithToken()
+    function deleteTaskFromState(task){
+        setTasks(tasks=>tasks.filter(t=>t.id!=task.id))
+    }
     const addTask = task => {
         setTasks(prev => [...prev, task])
     }
@@ -26,7 +29,7 @@ export default function Backlog({project}){
             <h1>Backlog</h1>
             <CreateTask project={project} addTask={addTask}></CreateTask>
             <div className="tasks">
-                {tasks && tasks.map(task=> <Task key={task.id} project={project} task={task}/>)}
+                {tasks && tasks.map(task=> <Task key={task.id} project={project} task={task} deleteFromState={()=>deleteTaskFromState(task)}/>)}
             </div>
         </div>
     )
